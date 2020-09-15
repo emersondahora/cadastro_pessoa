@@ -1,10 +1,9 @@
 PL/SQL Developer Test script 3.0
-21
+20
 DECLARE
   rPessoa tab_pessoa%ROWTYPE;
   rRetorno pkg_pessoa.recRetorno;
 BEGIN
-  rPessoa.prk_pessoa := :prk_pessoa;
   rPessoa.tip_pessoa := :tip_pessoa;
   rPessoa.num_cpfcnpj := :num_cpfcnpj;
   rPessoa.des_nome_razaosoc := :des_nome_razaosoc;
@@ -21,10 +20,7 @@ BEGIN
   :cod_retorno := rRetorno.num_retorno;
   :des_retorno := rRetorno.des_retorno;
 END;
-15
-prk_pessoa
-0
-5
+14
 tip_pessoa
 1
 F
