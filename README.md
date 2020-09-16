@@ -13,7 +13,7 @@ Na pasta "02 - blocos anonimos" encontram-se os blocos montados para utilizar as
 * **04 - view_pessoa.sql** - Utilização da VIEW __vw_pessoa__
  
 # Testes
-Na pasta "03 - testes" encontram-se testes realizados utilizando a ferramenta PL/SQL
+Na pasta "03 - testes" encontram-se testes realizados utilizando a ferramenta PL/SQL Developer
 * **01 - Cadastrar pessoa.sql** - Cadastro e Edição da Pessoa
 * **02 - Calcular Idade.sql** - Função para calcular o dado da pessoa
 * **03 - aumentar_salario.sql** - Função para aumentar o salário
