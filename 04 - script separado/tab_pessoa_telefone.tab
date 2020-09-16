@@ -1,0 +1,17 @@
+create table TAB_PESSOA_TELEFONE
+(
+  frk_pessoa   NUMBER,
+  des_telefone VARCHAR2(20)
+)
+;
+comment on table TAB_PESSOA_TELEFONE
+  is 'Tabela de armazenamento dos telefones da pessoa';
+comment on column TAB_PESSOA_TELEFONE.frk_pessoa
+  is 'Chave Estrangeira da TAB_PESSOA';
+comment on column TAB_PESSOA_TELEFONE.des_telefone
+  is 'Telefone';
+create index IDX_PESSOA_TELEFONE on TAB_PESSOA_TELEFONE (FRK_PESSOA);
+alter table TAB_PESSOA_TELEFONE
+  add constraint FK_PESSOA_TELEFONE foreign key (FRK_PESSOA)
+  references TAB_PESSOA (PRK_PESSOA);
+

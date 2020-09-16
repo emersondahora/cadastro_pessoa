@@ -1,0 +1,15 @@
+create table TAB_ESTADO_CIVIL
+(
+  prk_estado_civil NUMBER not null,
+  des_estado_civil VARCHAR2(200)
+)
+;
+comment on table TAB_ESTADO_CIVIL
+  is 'Tabela domínio de estados civis';
+comment on column TAB_ESTADO_CIVIL.prk_estado_civil
+  is 'Chave Primária do estado civil';
+comment on column TAB_ESTADO_CIVIL.des_estado_civil
+  is 'Descrição do estado civil';
+alter table TAB_ESTADO_CIVIL
+  add constraint PK_ESTADO_CIVIL primary key (PRK_ESTADO_CIVIL);
+

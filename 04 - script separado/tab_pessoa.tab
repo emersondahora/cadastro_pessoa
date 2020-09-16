@@ -1,0 +1,53 @@
+create table TAB_PESSOA
+(
+  prk_pessoa             NUMBER not null,
+  tip_pessoa             VARCHAR2(2) not null,
+  num_cpfcnpj            VARCHAR2(20) not null,
+  des_nome_razaosoc      VARCHAR2(200) not null,
+  dat_nascimento_criacao DATE not null,
+  des_rg                 VARCHAR2(20),
+  tip_sexo               VARCHAR2(2),
+  num_salario            NUMBER(10,2),
+  des_observacao         VARCHAR2(200),
+  des_email              VARCHAR2(200) not null,
+  frk_estado_civil       NUMBER
+)
+;
+comment on table TAB_PESSOA
+  is 'Tabela de armazenamento das Pessoas Fisica/Jurídica';
+comment on column TAB_PESSOA.prk_pessoa
+  is 'Chave primária da tabela de pessoa';
+comment on column TAB_PESSOA.tip_pessoa
+  is 'Tipo de Pessoa: F - Pessoa Física; J - Pessoa Jurídica';
+comment on column TAB_PESSOA.num_cpfcnpj
+  is 'CPF/CNPJ da pessoa';
+comment on column TAB_PESSOA.des_nome_razaosoc
+  is 'Nome ou Razao Social da pessoa';
+comment on column TAB_PESSOA.dat_nascimento_criacao
+  is 'Data de Nascimento da Pessoa Física ou Data de Criação da pessoa jurídica';
+comment on column TAB_PESSOA.des_rg
+  is 'RG';
+comment on column TAB_PESSOA.tip_sexo
+  is 'Sexo - M - Masculino; F - Feminino';
+comment on column TAB_PESSOA.num_salario
+  is 'Valor do salário da pessoa';
+comment on column TAB_PESSOA.des_observacao
+  is 'Observação da pessoa';
+comment on column TAB_PESSOA.des_email
+  is 'E-mail';
+comment on column TAB_PESSOA.frk_estado_civil
+  is 'Estado Civil (Ver tab_estado_civil)';
+alter table TAB_PESSOA
+  add constraint PK_PESSOA primary key (PRK_PESSOA);
+alter table TAB_PESSOA
+  add constraint UK_PESSOA unique (NUM_CPFCNPJ);
+alter table TAB_PESSOA
+  add constraint FK_PESSOA_ESTADO_CIVIL foreign key (FRK_ESTADO_CIVIL)
+  references TAB_ESTADO_CIVIL (PRK_ESTADO_CIVIL);
+alter table TAB_PESSOA
+  add constraint CH_PESSOA_SEXO
+  check (TIP_SEXO IN('M', 'F'));
+alter table TAB_PESSOA
+  add constraint CH_PESSOA_TIPO
+  check (TIP_PESSOA IN('F', 'J'));
+
